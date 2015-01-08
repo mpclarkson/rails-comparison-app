@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20150108033414) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "categories_items", id: false, force: :cascade do |t|
@@ -65,17 +65,10 @@ ActiveRecord::Schema.define(version: 20150108033414) do
     t.string   "name"
     t.text     "description"
     t.string   "image_url"
-    t.boolean  "active"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
-
-  create_table "items_categories", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "category_id"
-  end
-
-  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :image_url
-      t.boolean :active
+      t.boolean :active, default: true
 
       t.timestamps null: false
     end
