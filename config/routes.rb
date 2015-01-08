@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
+  resources :items
+
+  resources :categories
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   ActiveAdmin.routes(self)
-  root 'application#index'
+
+  root 'application#home'
+
+  get '/home' => 'application#home', as: :home
+  get '/about' => 'application#about', as: :about
+  get '/contact' => 'application#contact', as: :contact
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
