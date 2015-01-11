@@ -1,0 +1,233 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :affiliate_program %><br>
+    <%= f.text_field :affiliate_program %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.text_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_name %><br>
+    <%= f.text_field :product_name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :deep_link %><br>
+    <%= f.text_area :deep_link %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :merchant_category %><br>
+    <%= f.text_field :merchant_category %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_area :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :ean %><br>
+    <%= f.number_field :ean %>
+  </div>
+  <div class="field">
+    <%= f.label :upc %><br>
+    <%= f.number_field :upc %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %><br>
+    <%= f.number_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :mpn %><br>
+    <%= f.text_field :mpn %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_product_id %><br>
+    <%= f.number_field :parent_product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :brand_name %><br>
+    <%= f.text_field :brand_name %>
+  </div>
+  <div class="field">
+    <%= f.label :model_number %><br>
+    <%= f.text_field :model_number %>
+  </div>
+  <div class="field">
+    <%= f.label :basket_link %><br>
+    <%= f.text_area :basket_link %>
+  </div>
+  <div class="field">
+    <%= f.label :colour %><br>
+    <%= f.text_area :colour %>
+  </div>
+  <div class="field">
+    <%= f.label :commission_group %><br>
+    <%= f.text_field :commission_group %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.text_field :condition %>
+  </div>
+  <div class="field">
+    <%= f.label :dimensions %><br>
+    <%= f.text_area :dimensions %>
+  </div>
+  <div class="field">
+    <%= f.label :keywords %><br>
+    <%= f.text_area :keywords %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :product_type %><br>
+    <%= f.text_area :product_type %>
+  </div>
+  <div class="field">
+    <%= f.label :product_weight %><br>
+    <%= f.text_area :product_weight %>
+  </div>
+  <div class="field">
+    <%= f.label :promotional_text %><br>
+    <%= f.text_area :promotional_text %>
+  </div>
+  <div class="field">
+    <%= f.label :specifications %><br>
+    <%= f.text_area :specifications %>
+  </div>
+  <div class="field">
+    <%= f.label :warranty %><br>
+    <%= f.text_area :warranty %>
+  </div>
+  <div class="field">
+    <%= f.label :currency %><br>
+    <%= f.text_field :currency %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_cost %><br>
+    <%= f.text_field :delivery_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_cost %><br>
+    <%= f.text_field :delivery_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_restrictions %><br>
+    <%= f.text_area :delivery_restrictions %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_time %><br>
+    <%= f.text_field :delivery_time %>
+  </div>
+  <div class="field">
+    <%= f.label :in_stock %><br>
+    <%= f.check_box :in_stock %>
+  </div>
+  <div class="field">
+    <%= f.label :is_for_sale %><br>
+    <%= f.check_box :is_for_sale %>
+  </div>
+  <div class="field">
+    <%= f.label :pre_order %><br>
+    <%= f.check_box :pre_order %>
+  </div>
+  <div class="field">
+    <%= f.label :stock_quantity %><br>
+    <%= f.number_field :stock_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :rrp_price %><br>
+    <%= f.text_field :rrp_price %>
+  </div>
+  <div class="field">
+    <%= f.label :rrp_price %><br>
+    <%= f.text_field :rrp_price %>
+  </div>
+  <div class="field">
+    <%= f.label :saving %><br>
+    <%= f.text_area :saving %>
+  </div>
+  <div class="field">
+    <%= f.label :store_price %><br>
+    <%= f.text_field :store_price %>
+  </div>
+  <div class="field">
+    <%= f.label :store_price %><br>
+    <%= f.text_field :store_price %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_from %><br>
+    <%= f.date_select :valid_from %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_to %><br>
+    <%= f.date_select :valid_to %>
+  </div>
+  <div class="field">
+    <%= f.label :web_offer %><br>
+    <%= f.check_box :web_offer %>
+  </div>
+  <div class="field">
+    <%= f.label :merchant_image %><br>
+    <%= f.text_area :merchant_image %>
+  </div>
+  <div class="field">
+    <%= f.label :merchant_thumb %><br>
+    <%= f.text_area :merchant_thumb %>
+  </div>
+  <div class="field">
+    <%= f.label :thumb_url %><br>
+    <%= f.text_area :thumb_url %>
+  </div>
+  <div class="field">
+    <%= f.label :average_rating %><br>
+    <%= f.text_area :average_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :reviews %><br>
+    <%= f.text_area :reviews %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.text_area :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :last_updated %><br>
+    <%= f.datetime_select :last_updated %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

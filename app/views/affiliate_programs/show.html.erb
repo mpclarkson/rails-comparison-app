@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @affiliate_program.name %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @affiliate_program.display_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @affiliate_program.description %>
+</p>
+
+<%= link_to 'Edit', edit_affiliate_program_path(@affiliate_program) %> |
+<%= link_to 'Back', affiliate_programs_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Affiliate Programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Display name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @affiliate_programs.each do |affiliate_program| %>
+      <tr>
+        <td><%= affiliate_program.name %></td>
+        <td><%= affiliate_program.display_name %></td>
+        <td><%= affiliate_program.description %></td>
+        <td><%= link_to 'Show', affiliate_program %></td>
+        <td><%= link_to 'Edit', edit_affiliate_program_path(affiliate_program) %></td>
+        <td><%= link_to 'Destroy', affiliate_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Affiliate program', new_affiliate_program_path %>
