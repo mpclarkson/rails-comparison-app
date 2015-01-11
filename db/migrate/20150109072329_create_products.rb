@@ -6,9 +6,9 @@ class CreateProducts < ActiveRecord::Migration
       t.boolean :active, default: true
 
       #associations
-      t.belongs_to :merchant_id
-      t.belongs_to :affiliate_program_id
-      t.belongs_to :brand_id
+      t.belongs_to :merchant_id, index:true
+      t.belongs_to :affiliate_program_id, index:true
+      t.belongs_to :brand_id, index:true
 
       #aw attributes
       t.string :aw_product_id
@@ -54,10 +54,6 @@ class CreateProducts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-
-    add_index :products, :merchant_id
-    add_index :products, :affiliate_program_id
-    add_index :products, :brand_id
 
   end
 end
