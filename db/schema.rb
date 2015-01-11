@@ -103,15 +103,14 @@ ActiveRecord::Schema.define(version: 20150110230341) do
 
   create_table "products", force: :cascade do |t|
     t.text     "notes"
-    t.boolean  "active",                            default: true
-    t.integer  "merchant_id_id"
-    t.integer  "affiliate_program_id_id"
-    t.integer  "brand_id_id"
+    t.boolean  "active",                          default: true
+    t.string   "merchant_id"
+    t.integer  "affiliate_program_id"
+    t.string   "brand_id"
     t.string   "aw_product_id"
     t.text     "aw_deep_link"
     t.text     "aw_image_url"
     t.text     "aw_thumb_url"
-    t.string   "merchant_id"
     t.text     "merchant_product_id"
     t.text     "merchant_category"
     t.text     "merchant_deep_link"
@@ -119,7 +118,6 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.string   "product_name"
     t.text     "description"
     t.integer  "parent_product_id"
-    t.string   "brand_id"
     t.string   "brand_name"
     t.string   "model_number"
     t.text     "colour"
@@ -128,7 +126,7 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.text     "product_type"
     t.text     "promotional_text"
     t.text     "specifications"
-    t.string   "currency",                limit: 3
+    t.string   "currency",              limit: 3
     t.float    "search_price"
     t.string   "display_price"
     t.float    "rrp_price"
@@ -147,13 +145,13 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.text     "reviews"
     t.text     "rating"
     t.datetime "last_updated"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
-  add_index "products", ["affiliate_program_id_id"], name: "index_products_on_affiliate_program_id_id"
-  add_index "products", ["brand_id_id"], name: "index_products_on_brand_id_id"
-  add_index "products", ["merchant_id_id"], name: "index_products_on_merchant_id_id"
+  add_index "products", ["affiliate_program_id"], name: "index_products_on_affiliate_program_id"
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id"
+  add_index "products", ["merchant_id"], name: "index_products_on_merchant_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

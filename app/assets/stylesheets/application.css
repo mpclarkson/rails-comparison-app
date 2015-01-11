@@ -1,0 +1,34 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap.css
+ *= require theme.css
+ *= require dropzone.css
+ *= require font-awesome.css
+ *= require jquery.fancybox.css
+ *= require jquery.fancybox-buttons.css
+ *= require_self
+ *  Note: I removed 'require tree' as it causes conflicts
+ */
+
+/*<!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->*/
+/*<!--<link id="switch_style" href="css/bootstrap.css" rel="stylesheet">-->*/
+
+/*<!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->*/
+/*<!--<link href="css/theme.css" rel="stylesheet">-->*/
+/*<!--<link href="css/dropzone.css" rel="stylesheet">-->*/
+/*<!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->*/
+/*<!--<link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />-->*/
+/*<!--<link rel="stylesheet" type="text/css" href="js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.1.5" media="screen" />-->*/
+
+
+
