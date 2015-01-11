@@ -26,5 +26,7 @@ module App
     #MC: Use the default scaffold
     config.app_generators.scaffold_controller = :scaffold_controller
 
+    WillPaginate.per_page = 20
+
   end
 end

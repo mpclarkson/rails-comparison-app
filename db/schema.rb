@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108033414) do
+ActiveRecord::Schema.define(version: 20150110230341) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 20150108033414) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "affiliate_programs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "display_name"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "brands", ["name"], name: "index_brands_on_name"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -54,21 +71,84 @@ ActiveRecord::Schema.define(version: 20150108033414) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "categories_items", id: false, force: :cascade do |t|
-    t.integer "item_id"
+  create_table "categories_products", id: false, force: :cascade do |t|
     t.integer "category_id"
+    t.integer "product_id"
   end
 
-  add_index "categories_items", ["item_id"], name: "index_categories_items_on_item_id"
+  add_index "categories_products", ["product_id"], name: "index_categories_products_on_product_id"
 
-  create_table "items", force: :cascade do |t|
+  create_table "exchange_rates", force: :cascade do |t|
+    t.string   "from_currency"
+    t.string   "to_currency"
+    t.float    "rate"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "exchange_rates", ["from_currency", "to_currency"], name: "index_exchange_rates_on_from_currency_and_to_currency"
+  add_index "exchange_rates", ["from_currency"], name: "index_exchange_rates_on_from_currency"
+  add_index "exchange_rates", ["to_currency"], name: "index_exchange_rates_on_to_currency"
+
+  create_table "merchants", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image_url"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "merchant_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  create_table "products", force: :cascade do |t|
+    t.text     "notes"
+    t.boolean  "active",                          default: true
+    t.string   "merchant_id"
+    t.integer  "affiliate_program_id"
+    t.string   "brand_id"
+    t.string   "aw_product_id"
+    t.text     "aw_deep_link"
+    t.text     "aw_image_url"
+    t.text     "aw_thumb_url"
+    t.text     "merchant_product_id"
+    t.text     "merchant_category"
+    t.text     "merchant_deep_link"
+    t.text     "merchant_image_url"
+    t.string   "product_name"
+    t.text     "description"
+    t.integer  "parent_product_id"
+    t.string   "brand_name"
+    t.string   "model_number"
+    t.text     "colour"
+    t.string   "condition"
+    t.text     "keywords"
+    t.text     "product_type"
+    t.text     "promotional_text"
+    t.text     "specifications"
+    t.string   "currency",              limit: 3
+    t.float    "search_price"
+    t.string   "display_price"
+    t.float    "rrp_price"
+    t.text     "saving"
+    t.float    "store_price"
+    t.float    "delivery_cost"
+    t.text     "delivery_restrictions"
+    t.string   "delivery_time"
+    t.boolean  "in_stock"
+    t.boolean  "is_for_sale"
+    t.boolean  "pre_order"
+    t.date     "valid_from"
+    t.date     "valid_to"
+    t.boolean  "web_offer"
+    t.text     "average_rating"
+    t.text     "reviews"
+    t.text     "rating"
+    t.datetime "last_updated"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  add_index "products", ["affiliate_program_id"], name: "index_products_on_affiliate_program_id"
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id"
+  add_index "products", ["merchant_id"], name: "index_products_on_merchant_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

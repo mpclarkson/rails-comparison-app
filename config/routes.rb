@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :items
+  resources :exchange_rates
+
+  resources :brands
+
+  resources :merchants
+
+  resources :affiliate_programs
+
+  resources :products
 
   resources :categories
 
