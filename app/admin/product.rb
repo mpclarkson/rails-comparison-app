@@ -27,6 +27,7 @@ ActiveAdmin.register Product do
     column :merchant
     column :currency
     column :search_price
+    column :page_views
     actions
   end
 

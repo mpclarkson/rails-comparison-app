@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110230341) do
+ActiveRecord::Schema.define(version: 20150112051314) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "impressions"
+    t.integer  "page_views"
   end
 
   add_index "brands", ["name"], name: "index_brands_on_name"
@@ -69,6 +71,8 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.boolean  "active",      default: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "impressions"
+    t.integer  "page_views"
   end
 
   add_index "categories", ["name"], name: "index_categories_on_name"
@@ -93,12 +97,38 @@ ActiveRecord::Schema.define(version: 20150110230341) do
   add_index "exchange_rates", ["from_currency"], name: "index_exchange_rates_on_from_currency"
   add_index "exchange_rates", ["to_currency"], name: "index_exchange_rates_on_to_currency"
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+
   create_table "merchants", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "merchant_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "page_views"
   end
 
   create_table "products", force: :cascade do |t|
@@ -147,6 +177,8 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.datetime "last_updated"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+    t.integer  "impressions"
+    t.integer  "page_views"
   end
 
   add_index "products", ["affiliate_program_id"], name: "index_products_on_affiliate_program_id"
@@ -164,6 +196,7 @@ ActiveRecord::Schema.define(version: 20150110230341) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "impressions"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

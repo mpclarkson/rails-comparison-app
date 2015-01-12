@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show]
 
   # GET /products
   # GET /products.json
   def index
-    #@products = Product.all
-    @products = Product.page(params[:page])
+    if params[:search]
+      @products = Product.search(params[:search]).order("search_price DESC").page(params[:page])
+    else
+      @products = Product.order("product_name ASC").page.(params[:page])
+    end
   end
 
   # GET /products/1

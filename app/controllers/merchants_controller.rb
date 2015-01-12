@@ -1,5 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :set_merchant, only: [:show, :edit, :update, :destroy]
+  impressionist actions: [:show]
 
   # GET /merchants
   # GET /merchants.json
