@@ -19,7 +19,6 @@ namespace :import do
       zip_file.each do |entry|
 
         csv = CSV.new(entry.get_input_stream.read, :encoding => 'ISO-8859-1:UTF8', :headers => true, :header_converters => :symbol)
-        #Todo: .force_encoding("utf-8")
         csv = csv.to_a.map { |row| row.to_hash }
 
         csv.each do |row|
@@ -27,10 +26,14 @@ namespace :import do
           begin
 
             product = Product.find_or_initialize_by(aw_product_id: row[:aw_product_id])
-            product.affiliate_program = affiliate
 
             # Only update new products or those that have been changed since last import
             if product.id.nil? || product.last_updated != row[:last_updated]
+
+              product.affiliate_program = affiliate
+
+              # Force Encode strings to UTF8
+              row.each { |k, v| row[k] = v.force_encoding("utf-8") if v.is_a? String }
 
               # Find or create a new merchant
               merchant = Merchant.find_or_initialize_by(merchant_id: row[:merchant_id])

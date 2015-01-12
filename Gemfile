@@ -15,6 +15,8 @@ gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rai
 gem 'rubyzip'
 gem 'kaminari'
 gem 'impressionist'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

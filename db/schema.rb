@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150112051314) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "impressions"
     t.integer  "page_views"
   end
 
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(version: 20150112051314) do
     t.boolean  "active",      default: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "impressions"
     t.integer  "page_views"
   end
 
@@ -128,7 +126,6 @@ ActiveRecord::Schema.define(version: 20150112051314) do
     t.string   "merchant_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "page_views"
   end
 
   create_table "products", force: :cascade do |t|
@@ -177,7 +174,6 @@ ActiveRecord::Schema.define(version: 20150112051314) do
     t.datetime "last_updated"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
-    t.integer  "impressions"
     t.integer  "page_views"
   end
 
@@ -196,7 +192,6 @@ ActiveRecord::Schema.define(version: 20150112051314) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "impressions"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
