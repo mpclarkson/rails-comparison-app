@@ -17,9 +17,9 @@ module SearchableModel
         indexes :product, type: 'nested' do
             indexes :description, analyzer: 'snowball'
             indexes :product_name, analyzer: 'snowball'
-            indexes :brand, 'snowball'
-            indexes :keywords, 'snowball'
-            indexes :specifications, 'snowball'
+            # indexes :brand, 'snowball'
+            # indexes :keywords, 'snowball'
+            # indexes :specifications, 'snowball'
         end
       end
 
