@@ -17,6 +17,7 @@ gem 'kaminari'
 gem 'impressionist'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -34,7 +35,6 @@ end
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
-  gem 'bonsai-elasticsearch-rails'
   # Use Unicorn as the app server #https://devcenter.heroku.com/articles/getting-started-with-rails4#webserver
   # gem 'unicorn'
 end
