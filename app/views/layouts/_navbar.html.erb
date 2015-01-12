@@ -2,15 +2,16 @@
   <div class="container">
 
     <div class="navbar-header">
+
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to home_path, class: 'navbar-brand' do %>
+      <%= link_to root_path, class: 'navbar-brand' do %>
         <span class="logo">
-          <strong>bike</strong><span class="handwriting">detective</span><br /><small >Search cycling brands</small></span>
+          <strong>bike</strong><span class="handwriting">detective</span><br /><small >Find and compare cycling gear</small></span>
       <% end %>
 
     </div>
@@ -19,22 +20,20 @@
 
       <ul class="nav navbar-nav navbar-right visible-xs">
         <li class="active"><a href="#">Home</a></li>
+        <%= link_to 'Home', root_path, class: 'active' %>
         <li><a href="my_account.html">Login</a></li>
         <li><a href="register.html">Register</a></li>
-        <li><a href="listings.html">Listings</a></li>
-        <li><a href="account_dashboard.html">My account</a></li>
-        <li><a href="account_ad_create.html">Post an ad</a></li>
+        <%= link_to 'Search', root_path, class: 'active' %>
+        <!--<li><a href="account_ad_create.html">Post an ad</a></li>-->
       </ul>
       <div class="nav navbar-nav navbar-right hidden-xs">
         <div class="row">
 
           <div class="pull-right">
 
-            <a data-toggle="modal" data-target="#modalLogin"  href="#">Login</a> |
-            <a href="register.html">Register</a> |
-            <a href="listings.html">Listings</a> |
-            <a href="account_dashboard.html">My account</a>
-            <a href="account_ad_create.html" class="btn btn-warning post-ad-btn">Post an ad</a>
+            <a data-toggle="modal" data-target="#modalLogin"  href="#">Login </a>
+            <a href="register.html" class="btn btn-warning post-ad-btn">Register</a>
+            <!--<a href="account_ad_create.html" class="btn btn-warning post-ad-btn">Post an ad</a>-->
 
           </div>
         </div>

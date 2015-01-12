@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | Cycling App</title>
+  <title><%= yield(:title) %> | Bike Detective</title>
+  <!--<link id="switch_style" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
-
 </head>
-
 <body>
-
-<div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
 <%= render 'layouts/navbar' %>
-<%= render 'layouts/jumbotron' %>
-
-<div class="container">
- <%= yield %>
-</div>
-<!-- /.container -->
-
+<%= yield %>
 <%= render 'layouts/modal' %>
 <%= render 'layouts/footer' %>
 
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
 

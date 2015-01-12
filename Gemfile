@@ -13,7 +13,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem 'rubyzip'
-gem 'will_paginate', '~> 3.0.5'
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -14,9 +14,9 @@
  *= require theme.css
  *= require dropzone.css
  *= require font-awesome.css
- *= require jquery.fancybox.css
- *= require jquery.fancybox-buttons.css
- *= require_self
+ * require jquery.fancybox.css
+ * require jquery.fancybox-buttons.css
+ * require_self
  *  Note: I removed 'require tree' as it causes conflicts
  */
 
