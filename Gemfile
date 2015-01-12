@@ -35,6 +35,7 @@ end
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
+  gem 'newrelic_rpm'
   # Use Unicorn as the app server #https://devcenter.heroku.com/articles/getting-started-with-rails4#webserver
   # gem 'unicorn'
 end
