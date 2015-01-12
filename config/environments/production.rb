@@ -81,5 +81,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'sleepy-ravine-4931.herokuapp.com' }
 
   # Elasticsearch for Heroku
-  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
+  #Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
+  Elasticsearch::Model.client = Elasticsearch::Client.new url: ENV['BONSAI_URL']
+
 end
