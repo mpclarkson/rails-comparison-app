@@ -17,8 +17,8 @@
 //= require global.js
 //= require jquery_ujs
 //= require turbolinks
-// require jquery.fancybox.js
-// require jquery.fancybox-buttons.js
-// require jquery.fancybox-media.js
+//= require jquery.fancybox.js
+//= require jquery.fancybox-buttons.js
+//= require jquery.fancybox-media.js
 // require_tree .
 
