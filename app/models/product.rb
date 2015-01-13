@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
     if self.currency == 'GBP'
       '£%.2f' % self.search_price.to_s
     else
-      '%£%.2f' % (self.currency self.search_price.to_s)
+      '%$%.2f' % (self.currency self.search_price.to_s)
     end
   end
 
