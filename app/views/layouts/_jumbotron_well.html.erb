@@ -5,39 +5,39 @@
       <div class="col-sm-12">
         <div class="home-tron-search-inner">
 
-          <form id="search-form" action="/products" method="get">
-
-          <div class="row">
-
-            <div class="col-sm-8 col-xs-9" style="text-align: center">
+          <%= form_tag products_path, method: :get do %>
 
               <div class="row">
-                <div class="col-sm-12 col-sm-offset-1">
-                  <div class="input-group">
-                    <span class="input-group-addon input-group-addon-text hidden-xs"></span>
 
-                    <input type="text" name="search" class="form-control col-sm-3" placeholder="Find cycling products (e.g. Specialized, Helmet, Light)...">
+                <div class="col-sm-8 col-xs-9" style="text-align: center">
 
+
+                  <div class="row">
+                    <div class="col-sm-12 col-sm-offset-1">
+                      <div class="input-group">
+                        <span class="input-group-addon input-group-addon-text hidden-xs"></span>
+
+                        <input type="search" name="search[q]" class="form-control col-sm-3" placeholder="Find cycling products (e.g. Specialized, Helmet, Light)..." value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">
+
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
 
-            <div class="col-sm-4 col-xs-3" style="text-align: center">
-              <div class="row">
-                <div class="col-sm-11 pull-right">
+                <div class="col-sm-4 col-xs-3" style="text-align: center">
+                  <div class="row">
+                    <div class="col-sm-11 pull-right">
 
-                  <input type="submit" value="Search" class="btn btn-primary search-btn">
+                      <input type="submit" value="Search" class="btn btn-primary search-btn">
 
+                    </div>
+                  </div>
                 </div>
+
               </div>
-            </div>
 
-
-          </div>
-
-          </form>
+          <% end %>
 
         </div>
       </div>

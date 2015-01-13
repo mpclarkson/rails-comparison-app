@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def home
+    @products_count = Product.count
+    @brands_count = Brand.count
   end
 
   def contact
