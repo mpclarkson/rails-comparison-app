@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :exchange_rates
+  #resources :exchange_rates
 
-  resources :brands
+  #resources :brands
 
-  resources :merchants
+  #resources :merchants
 
-  resources :affiliate_programs
+  #resources :affiliate_programs
 
-  resources :products
+  #resources :products
 
-  resources :categories
+  get '/products' => 'products#index', as: :products
+  get '/products/:id' => 'products#show', as: :product
+
+  #resources :categories
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
