@@ -5,8 +5,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    set_meta_tags title: 'Product Listing | The Bike Detective'
-    set_meta_tags description: "Search #{@products_count} cycling products from #{@brands_count}, in one place"
     @search = Product.search( *Product.search_params(params) )
   end
 
