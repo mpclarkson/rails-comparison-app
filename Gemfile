@@ -17,7 +17,8 @@ gem 'kaminari'
 gem 'impressionist'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem "dynamic_sitemaps"
+gem 'dynamic_sitemaps'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

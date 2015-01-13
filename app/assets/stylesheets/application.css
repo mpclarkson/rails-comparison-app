@@ -12,8 +12,9 @@
  *
  *= require bootstrap.css
  *= require theme.css
+ *= require mc_custom.css
  *= require dropzone.css
- *= require font-awesome.css
+ *= require font-awesome
  * require jquery.fancybox.css
  * require jquery.fancybox-buttons.css
  * require_self
