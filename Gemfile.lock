@@ -71,7 +71,6 @@ GEM
     bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bonsai-elasticsearch-rails (0.0.4)
     bourbon (4.1.0)
       sass (~> 3.3)
       thor
@@ -97,6 +96,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dynamic_sitemaps (2.0.0)
     elasticsearch (1.0.6)
       elasticsearch-api (= 1.0.6)
       elasticsearch-transport (= 1.0.6)
@@ -247,10 +247,10 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  bonsai-elasticsearch-rails
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dynamic_sitemaps
   elasticsearch-model
   elasticsearch-rails
   impressionist

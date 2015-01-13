@@ -1,4 +1,5 @@
 <% provide(:title, @product.product_name) %>
+<% provide(:description, @product.description[0,70]) %>
 <%= render 'layouts/jumbotron_well' %>
 <div class="container" id="listings-page">
   <div class="row">

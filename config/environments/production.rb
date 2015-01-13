@@ -78,6 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Update this with prod host...
-  config.action_mailer.default_url_options = { host: 'sleepy-ravine-4931.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'thebikedetective.com' }
+
+  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
 
 end

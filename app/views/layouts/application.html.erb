@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | Bike Detective</title>
+  <title><%= yield(:title) %> | The Bike Detective</title>
+  <meta name="description" content="<%= yield(:description) %>">
   <!--<link id="switch_style" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +17,6 @@
 <%= yield %>
 <%= render 'layouts/modal' %>
 <%= render 'layouts/footer' %>
-
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
