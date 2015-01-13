@@ -8,7 +8,7 @@
 
         <br /><br />
 
-        <form id="search-form" action="/products" method="get">
+        <%= form_tag products_path, method: :get do %>
 
         <div class="row">
 
@@ -20,7 +20,7 @@
                 <div class="input-group">
                   <span class="input-group-addon input-group-addon-text"></span>
 
-                  <input type="text" name="search" class="form-control col-sm-3" placeholder="Find cycling products (e.g. Specialized, Helmet, Light)...">
+                  <input type="search" name="search[q]" class="form-control col-sm-3" placeholder="Find cycling products (e.g. Specialized, Helmet, Light)..." value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">
 
                 </div>
               </div>
@@ -37,22 +37,11 @@
 
         </div>
 
-        </form>
+        <% end %>
 
         <br />
         <br />
-        <!--<div class="row">-->
-          <!--<div class="col-sm-12" style="text-align: center">-->
 
-            <!--<div id="quotes">-->
-              <!--<div class="text-item" style="display: none;">Boom! <strong>Vince</strong> just sold a <strong>Washing Machine</strong> in <strong>Sheffield</strong></div>-->
-              <!--<div class="text-item" style="display: none;"><strong>Julia</strong> is availiable for <strong>home cleaning</strong> in <strong>Manchester</strong></div>-->
-              <!--<div class="text-item" style="display: none;">Success! <strong>Paul</strong> has just sold a <strong>Mercedes-Benz E-class</strong> in <strong>Liverpool</strong></div>-->
-              <!--<div class="text-item" style="display: none;">Hey, <strong>Uber</strong> has a <strong>job opening</strong> in <strong>London</strong></div>-->
-            <!--</div>-->
-
-          <!--</div>-->
-        <!--</div>-->
       </div>
     </div>
   </div>

@@ -1,79 +1,76 @@
 <% provide(:title, "Results") %>
-<%= render 'layouts/jumbotron_well' %>
 
 <div class="container">
 
   <br />
   <div class="row">
-    <!--<div class="col-sm-12">-->
-      <!--<ol class="breadcrumb">-->
-        <!--<li><a href="#">Home</a></li>-->
-        <!--&lt;!&ndash;<li><a href="#">Vehicles</a></li>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li class="active">Cars</li>&ndash;&gt;-->
-        <!--&lt;!&ndash;<li class="active">4,699 results for <strong>"Cars"</strong> in London</li>&ndash;&gt;-->
-      <!--</ol>-->
-    <!--</div>-->
+    <div class="col-sm-12">
+    <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <!--<li><a href="#">Vehicles</a></li>-->
+    <!--<li class="active">Cars</li>-->
+    <!--<li class="active">4,699 results for <strong>"Cars"</strong> in London</li>-->
+    </ol>
+    </div>
   </div>
 
   <div class="row">
 
+  <%= render 'left_column' %>
 
-    <!--<div class="col-sm-8 pull-right listings">-->
-
-    <div class="col-sm-12 listings">
+    <div class="col-sm-8 pull-right listings">
 
       <div class="row listing-row" style="margin-top: -10px;">
         <div class="pull-left">
           <strong>Today, <%= Time.now.strftime("%A #{Time.now.day.ordinalize} %B") %></strong>
           <br>
-          <small><%= "Page #{@products.current_page} of #{@products.total_pages} (#{@products.total_count} results)" %></small>
+          <small><%= "Page #{@search.current_page} of #{@search.total_pages} (#{@search.total_count} results)" %></small>
         </div>
         <div class="pull-right">
-          <!--<span style="">Sort by:&nbsp;&nbsp;&nbsp;</span>-->
-          <!--<a href="#"  data-toggle="tooltip" data-placement="top" title="Sort from newest to oldest"> Date <i class="fa fa-chevron-up"></i></a>-->
-          <!--<a href="#" data-toggle="tooltip" data-placement="top" title="Sort from lowest price to highest price"> Price <i class="fa fa-chevron-down"></i></a>-->
+          <span style="">Sort by:&nbsp;&nbsp;&nbsp;</span>
+          <a href="#"  data-toggle="tooltip" data-placement="top" title="Sort by relevance"> Relevance <i class="fa fa-chevron-up"></i></a>
+          <a href="#" data-toggle="tooltip" data-placement="top" title="Sort from lowest to highest price"> Price <i class="fa fa-chevron-down"></i></a>
         </div>
       </div>
 
-      <% @products.each do |product| %>
+      <% @search.each do |product| %>
 
-      <div class="row  listing-row">
-        <div class="col-sm-2">
-          <%= link_to image_tag(product.aw_thumb_url, alt: product.product_name), product_path(product), class: 'thumbnail'%>
-        </div>
+          <div class="row  listing-row">
 
-        <div class="col-sm-10">
-          <h3>
-            <%= link_to "#{product.product_name} - <strong> #{product.display_price}</strong>".html_safe, product_path(product)%>
-          </h3>
-          <p class="muted">
-            Updated <strong><%= product.last_updated_display.strftime("%b #{ product.last_updated_display.day.ordinalize }, %Y") %></strong> |
-            Brand <strong><%= product.brand.name %> </strong> |
-            Vendor <strong><%= product.merchant.name %></strong>
-          </p>
-          <p><%= product.description.force_encoding("utf-8") %></p>
-          <p class="ad-description muted">
-          <p>
-            <br>
+            <div class="col-sm-2">
+              <%= link_to image_tag(product.aw_thumb_url, alt: product.product_name), product_path(product.id), class: 'thumbnail'%>
+            </div>
+
+            <div class="col-sm-10">
+              <h3>
+                <%= link_to "#{product.product_name} - <strong> #{product.display_price}</strong>".html_safe, product_path(product)%>
+              </h3>
+              <p class="muted">
+                Brand <strong><%= product.brand.name %> </strong> |
+                Vendor <strong><%= product.merchant.name %></strong>
+              </p>
+              <p><%= product.description.force_encoding("utf-8") %></p>
+              <p class="ad-description muted">
+              <p>
+                <br>
             <span class="classified_links pull-right">
-                <!--<a class="link-info underline" href="#">Share</a>&nbsp;-->
-                <!--<a class="link-info underline" href="#">Add to favorites</a>-->
-                <!--&nbsp;<a class="link-info underline" href="details.html">Details</a>&nbsp;-->
-              <%= link_to 'Details', product_path(product), class: 'link-info underline'%>&nbsp;
-                &nbsp;
-              <!--<a class="link-info underline" href="#">Buy From Vendor</a>-->
+              <%= link_to 'Details', product_path(product.id), class: 'link-info underline'%>&nbsp;
+            &nbsp;
               <%= link_to 'Buy From Vendor', product.aw_deep_link, class: 'btn btn-warning', rel: 'nofollow'%>&nbsp;
             </span>
-          </p>
-        </div>
-      </div>
+              </p>
+            </div>
+
+          </div>
 
       <% end %>
 
+
       <div class="pull-right">
-        <%= paginate @products %>
+        <%= paginate @search %>
       </div>
 
+
+      </div>
     </div>
-  </div>
 </div>

@@ -1,182 +1,79 @@
+<!--<div class="row">-->
 
-  <div class="col-sm-4  hidden-xs">
+  <div class="col-sm-4">
+
     <div class="sidebar ">
+      <br />
+
+      <%= form_tag products_path, method: :get, class: 'form-inline mini', style: "margin-bottom: 0px;" do %>
 
       <div class="row ">
 
         <div class="col-sm-11">
 
           <div class="panel panel-default">
-            <div class="panel-heading">Filters</div>
+            <div class="panel-heading">Advanced Search</div>
             <div class="panel-body">
-              <form class="form-inline mini" style="margin-bottom: 0px;">
-                <fieldset>
 
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Make</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class=" form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
+              <div class="form-group">
+                <input type="search" class="form-control" name="search[q]" placeholder="Search" value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">
+              </div>
 
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Mileage</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class="col-sm-10 form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Seller type</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class="col-sm-10 form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Body type</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class="col-sm-10 form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Fuel type</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class="col-sm-10 form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row filter-row">
-                    <div class="col-sm-6">
-                      <label>Age</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <select class="col-sm-10 form-control ">
-                        <option>Any</option>
-                        <option>Alfa romeo</option>
-                        <option>Houses</option>
-                        <option>Flats/ Apartments</option>
-                        <option>Bungalows</option>
-                        <option>Land</option>
-                        <option>Commercial property</option>
-                        <option>Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="row filter-row">
-                    <div class="col-sm-12">
-                      <label>Price range</label>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        <input type="email" class="form-control price-input" placeholder="min" />
+              <% @search.response.facets.each do |facet,facet_data| %>
+                      <div class='row filter-row'>
+                        <div class="col-sm-6">
+                          <label><%= ActiveSupport::Inflector.humanize(facet) %></label>
+                        </div>
+                          <div class="col-sm-6">
+                          <select class=' form-control facet_select' size='5' name="search[<%= facet %>][]" multiple>
+                          <% facet_data.terms.each do |f| %>
+                              <% selected = (params[:search].present? && params[:search][facet].present? && params[:search][facet].include?(f[:term].to_s)) ? true : false %>
+                              <option data-selected="<%= selected %>" value="<%= f[:term] %>" <%= selected ? "selected" : "" %> >
+                                <%= f[:term] %>
+                                (<%= f[:count] %>)
+                              </option>
+                          <% end %>
+                          </select>
+                          </div>
                       </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="input-group">
-                        <span class="input-group-addon">$</span>
-                        <input type="email" class="form-control price-input" placeholder="max" />
-                      </div>
-                    </div>
+                  <% end %>
+
+              <div class="row filter-row">
+                <div class="col-sm-12">
+                  <label>Price range</label>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="email" class="form-control price-input" placeholder="min" />
                   </div>
-                  <div class="row filter-row">
-                    <div class="col-sm-12">
-                      <label>Search only:</label>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" value="option1" checked>
-                          Urgent ads
-                        </label>
-                      </div><br />
-
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" value="option2">
-                          Featured ads
-                        </label>
-                      </div><br />
-
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" value="option2">
-                          Only ads with pictures
-                        </label>
-                      </div>
-                    </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="email" class="form-control price-input" placeholder="max" />
                   </div>
-
-                  <div class="row filter-row">
-
-                    <div class="col-sm-2 pull-right" style="margin-top: 10px;">
-                      <button class="btn btn-primary pull-right" type="submit">Update results</button>
-
-                    </div>
-                  </div>
+                </div>
+              </div>
 
 
-                </fieldset>
-              </form>
+              <div class='form-group'>
+                <button type="submit" class="btn btn-primary pull-right" id="search_btn">Search</button>
+              </div>
+
+
+
+
             </div>
           </div>
+
+
+
+
         </div>
       </div>
     </div>
+
+      <% end %>
   </div>
 <!--</div>-->

@@ -1,0 +1,43 @@
+
+<% provide(:title, "Results") %>
+<%= render 'layouts/jumbotron_well' %>
+
+<div class="container">
+
+<br />
+<div class="row">
+<!--<div class="col-sm-12">-->
+<!--<ol class="breadcrumb">-->
+<!--<li><a href="#">Home</a></li>-->
+<!--&lt;!&ndash;<li><a href="#">Vehicles</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li class="active">Cars</li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li class="active">4,699 results for <strong>"Cars"</strong> in London</li>&ndash;&gt;-->
+<!--</ol>-->
+<!--</div>-->
+</div>
+
+<div class="row">
+
+<div class="col-sm-12 listings">
+
+<div class="row listing-row" style="margin-top: -10px;">
+<div class="pull-left">
+<strong>Today, <%= Time.now.strftime("%A #{Time.now.day.ordinalize} %B") %></strong>
+<br>
+<small><%= "Page #{@products.current_page} of #{@products.total_pages} (#{@products.total_count} results)" %></small>
+</div>
+<div class="pull-right">
+<!--<span style="">Sort by:&nbsp;&nbsp;&nbsp;</span>-->
+<!--<a href="#"  data-toggle="tooltip" data-placement="top" title="Sort from newest to oldest"> Date <i class="fa fa-chevron-up"></i></a>-->
+<!--<a href="#" data-toggle="tooltip" data-placement="top" title="Sort from lowest price to highest price"> Price <i class="fa fa-chevron-down"></i></a>-->
+</div>
+</div>
+
+
+<div class="pull-right">
+<%= paginate @products %>
+</div>
+
+</div>
+</div>
+</div>

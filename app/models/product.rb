@@ -1,11 +1,7 @@
 class Product < ActiveRecord::Base
+  include ElasticsearchSearchable
 
-  include SearchableModel
-
-  # Move this to searchable model
-  def self.search(query)
-    where("description like ?", "%#{query}%")
-  end
+  scope :active, -> { where(active: true) }
 
   is_impressionable counter_cache: true, column_name: :page_views
 

@@ -17,6 +17,7 @@ gem 'kaminari'
 gem 'impressionist'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+
 gem 'bonsai-elasticsearch-rails'
 
 # Use ActiveModel has_secure_password
