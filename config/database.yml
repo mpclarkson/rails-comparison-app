@@ -24,4 +24,4 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  url: <%= ENV['HEROKU_POSTGRESQL_BLACK_URL'] %>
+  url: <%= ENV['HEROKU_POSTGRESQL_ORANGE_URL'] %>
