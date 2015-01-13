@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #resources :categories
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-  devise_for :users
+  #devise_for :users
   ActiveAdmin.routes(self)
 
   root 'application#home'
