@@ -21,7 +21,7 @@
 
         <div class="col-sm-5">
 
-          <p class="price"><%= @product.display_price %></p>
+          <p class="price"><%= @product.currency_price %></p>
 
         </div>
 
@@ -70,7 +70,7 @@
                 <tbody>
                 <tr>
                   <th>Price</th>
-                  <td><%= @product.display_price %></td>
+                  <td><%= @product.currency_price %></td>
                 </tr>
                 <tr>
                   <th></th>
@@ -111,7 +111,7 @@
             <%= link_to 'Buy From Vendor', @product.aw_deep_link, class: 'btn btn-warning', rel: 'nofollow'%>
             <br />
             <br />
-            <p><%= @product.display_price %></p>
+            <p><%= @product.currency_price %></p>
           </div>
           <br />
 

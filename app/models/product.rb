@@ -18,4 +18,12 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def currency_price
+    if self.currency == 'GBP'
+      '£%.2f' % self.search_price.to_s
+    else
+      '%£%.2f' % (self.currency self.search_price.to_s)
+    end
+  end
+
 end
