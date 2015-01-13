@@ -37,7 +37,6 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'newrelic_rpm'
   gem 'unicorn'
-  gem 'rack-timeout'
 end
 
 
