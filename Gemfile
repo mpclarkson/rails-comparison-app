@@ -15,8 +15,6 @@ gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rai
 gem 'rubyzip'
 gem 'kaminari'
 gem 'impressionist'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 gem 'dynamic_sitemaps'
 gem 'font-awesome-rails'
 gem 'filterrific'

@@ -80,6 +80,6 @@ Rails.application.configure do
   #Update this with prod host...
   config.action_mailer.default_url_options = { host: 'thebikedetective.com' }
 
-  Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
+  #Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['SEARCHBOX_URL']
 
 end
