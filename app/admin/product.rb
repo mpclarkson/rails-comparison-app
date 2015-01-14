@@ -21,7 +21,6 @@ ActiveAdmin.register Product do
     end
     column :id
     column :product_name
-    column :description
     column :brand_name
     column :last_updated
     column :merchant
