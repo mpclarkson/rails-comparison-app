@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
-  # include ElasticsearchSearchable
+
+  # include ElasticsearchSearchable ##this has been replaced by searchkick
 
   searchkick text_start: [:product_name], autocomplete: ['product_name']
 
