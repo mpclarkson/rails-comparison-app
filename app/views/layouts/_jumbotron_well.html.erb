@@ -16,9 +16,7 @@
                     <div class="col-sm-12 col-sm-offset-1">
                       <div class="input-group">
                         <span class="input-group-addon input-group-addon-text hidden-xs"></span>
-
-                        <input type="search" name="search[q]" class="form-control col-sm-3" placeholder="Find cycling products (e.g. Specialized, Helmet, Light)..." value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">
-
+                          <%= render 'layouts/search_form_field' %>
                       </div>
                     </div>
                   </div>

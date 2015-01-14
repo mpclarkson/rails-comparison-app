@@ -5,7 +5,21 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @search = Product.search( *Product.search_params(params) )
+    #@search = Product.search(search_params(params) )
+
+    if params[:search].present?
+      @search = Product.search(params[:search][:q], page: params[:page], per_page: 20)
+    else
+      @search = Product.all.page params[:page]
+    end
+
+  end
+
+  def search_params(params={})
+    return [nil,nil] if params.blank? || params[:search].blank?
+    p = params[:search].dup
+    q = p.delete(:q)
+    [q, p]
   end
 
   # GET /products/1
@@ -60,6 +74,10 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def autocomplete
+    render json: Product.search(params[:search][:q], fields: [{product_name: :text_start}], limit: 10).map(&:product_name)
   end
 
   private

@@ -114,6 +114,8 @@ GEM
     execjs (2.2.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    filterrific (1.4.3)
+      rails (>= 3.1.0)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     formtastic (3.1.2)
@@ -219,6 +221,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (0.8.5)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     slop (3.6.0)
     spring (1.2.0)
     sprockets (2.12.3)
@@ -264,6 +270,7 @@ DEPENDENCIES
   dynamic_sitemaps
   elasticsearch-model
   elasticsearch-rails
+  filterrific
   font-awesome-rails
   heroku-deflater
   impressionist
@@ -279,6 +286,7 @@ DEPENDENCIES
   rubyzip
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  searchkick
   spring
   sqlite3
   turbolinks

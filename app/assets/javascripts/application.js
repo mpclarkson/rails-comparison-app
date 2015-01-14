@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap.js
+//= require typeahead-custom.js
 //= require jquery.flot.js
 //= require dropzone.js
 //= require jquery.fancybox.js
@@ -21,6 +22,7 @@
 //= require search.js
 //= require jquery_ujs
 //= require turbolinks
+
 
 // require_tree .
 

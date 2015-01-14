@@ -12,11 +12,12 @@ Rails.application.routes.draw do
 
   get '/products' => 'products#index', as: :products
   get '/products/:id' => 'products#show', as: :product
+  get '/products/search/autocomplete' => 'products#autocomplete', as: :products_autocomplete
 
   #resources :categories
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
   #devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   root 'application#home'

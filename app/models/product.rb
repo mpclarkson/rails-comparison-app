@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
-  include ElasticsearchSearchable
+  # include ElasticsearchSearchable
+
+  searchkick text_start: [:product_name], autocomplete: ['product_name']
 
   scope :active, -> { where(active: true) }
 
