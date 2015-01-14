@@ -5,22 +5,26 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    #@search = Product.search(search_params(params) )
-
     if params[:search].present?
-      @search = Product.search(params[:search][:q], page: params[:page], per_page: 20)
+      query = params[:search][:q].present? ? params[:search][:q] : '*'
+      @search = execute_search(query, params[:page])
     else
-      @search = Product.all.page params[:page]
+      @search = execute_search('*', params[:page])
     end
 
   end
 
-  def search_params(params={})
-    return [nil,nil] if params.blank? || params[:search].blank?
-    p = params[:search].dup
-    q = p.delete(:q)
-    [q, p]
+  def execute_search(query, page, per_page = 20)
+    Product.search(query, page: page, per_page: per_page)
   end
+
+  #
+  # def search_params(params={})
+  #   return [nil,nil] if params.blank? || params[:search].blank?
+  #   p = params[:search].dup
+  #   q = p.delete(:q)
+  #   [q, p]
+  # end
 
   # GET /products/1
   # GET /products/1.json
