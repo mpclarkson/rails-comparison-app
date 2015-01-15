@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
     else
       @search = execute_search('*', params[:page])
     end
-
   end
 
   def execute_search(query, page, per_page = 20)
