@@ -12,53 +12,67 @@
         <div class="col-sm-11">
 
           <div class="panel panel-default">
-            <div class="panel-heading">Advanced Search</div>
+            <div class="panel-heading">Filter Results</div>
             <div class="panel-body">
 
-              <div class="form-group">
-                <input type="search" class="form-control" name="search[q]" placeholder="Search" value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">
-              </div>
+              <!--<div class="form-group">-->
+                <!--<input type="search" class="form-control" name="search[q]" placeholder="Search" value="<%= (params[:search].present? && params[:search][:q].present?) ? params[:search][:q] : "" %>">-->
+              <!--</div>-->
 
-              <% @search.response.facets.each do |facet,facet_data| %>
-                      <div class='row filter-row'>
-                        <div class="col-sm-6">
-                          <label><%= ActiveSupport::Inflector.humanize(facet) %></label>
-                        </div>
-                          <div class="col-sm-6">
-                          <select class=' form-control facet_select' size='5' name="search[<%= facet %>][]" multiple>
-                          <% facet_data.terms.each do |f| %>
-                              <% selected = (params[:search].present? && params[:search][facet].present? && params[:search][facet].include?(f[:term].to_s)) ? true : false %>
-                              <option data-selected="<%= selected %>" value="<%= f[:term] %>" <%= selected ? "selected" : "" %> >
-                                <%= f[:term] %>
-                                (<%= f[:count] %>)
-                              </option>
-                          <% end %>
-                          </select>
-                          </div>
-                      </div>
+                  <div class='form-group'>
+                    <!--<div class="col-sm-6">-->
+                      <label>Brand</label>
+                    <!--</div>-->
+                      <!--<div class="col-sm-6">-->
+                      <select class='form-control facet_select' name="search[brand]">
+                      <% @search.facets['brand']['terms'].each do |t| %>
+                           <% selected = (params[:search].present? && params[:search][t['term']].present? && params[:search][t['term']]==t['term']) ? true : false %>
+                          <option data-selected="<%= selected %>" value="<%= t['term'] %>" <%= selected ? "selected" : "" %> >
+                            <%= t['term'] %>
+                            (<%= t['count'] %>)
+                          </option>
+                      <% end %>
+                      </select>
+                      <!--</div>-->
+                  </div>
+
+              <div class='form-group'>
+                <!--<div class="col-sm-6">-->
+                <label>Merchant</label>
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                <select class='form-control facet_select' name="search[merchant]">
+                  <% @search.facets['merchant']['terms'].each do |t| %>
+                      <% selected = (params[:search].present? && params[:search][t['term']].present? && params[:search][t['term']]==t['term']) ? true : false %>
+                      <option data-selected="<%= selected %>" value="<%= t['term'] %>" <%= selected ? "selected" : "" %> >
+                        <%= t['term'] %>
+                        (<%= t['count'] %>)
+                      </option>
                   <% end %>
-
-              <div class="row filter-row">
-                <div class="col-sm-12">
-                  <label>Price range</label>
-                </div>
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="email" class="form-control price-input" placeholder="min" />
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="email" class="form-control price-input" placeholder="max" />
-                  </div>
-                </div>
+                </select>
+                <!--</div>-->
               </div>
+              <!--<div class="row filter-row">-->
+                <!--<div class="col-sm-12">-->
+                  <!--<label>Price range</label>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                  <!--<div class="input-group">-->
+                    <!--<span class="input-group-addon">$</span>-->
+                    <!--<input type="email" class="form-control price-input" placeholder="min" />-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6">-->
+                  <!--<div class="input-group">-->
+                    <!--<span class="input-group-addon">$</span>-->
+                    <!--<input type="email" class="form-control price-input" placeholder="max" />-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
 
 
               <div class='form-group'>
-                <button type="submit" class="btn btn-primary pull-right" id="search_btn">Search</button>
+                <button type="submit" class="btn btn-primary pull-right" id="search_btn">Filter</button>
               </div>
 
 

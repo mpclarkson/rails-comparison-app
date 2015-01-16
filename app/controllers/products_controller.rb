@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def execute_search(query, page, per_page = 20)
-    Product.search(query, page: page, per_page: per_page)
+    Product.search(query, page: page, per_page: per_page, facets: [:brand, :merchant])
   end
 
   #
